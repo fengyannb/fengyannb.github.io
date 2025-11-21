@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACT导航页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Microsoft Yahei", sans-serif;
+            position: relative;
+        }
+        .snow {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            color: white;
+            opacity: 0.8;
+            animation: fall linear infinite;
+            pointer-events: none;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .title {
+            font-size: 3rem;
+            font-family: "STKaiti", "KaiTi", "SimSun", sans-serif;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffd700, #ffb800);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5);
+            margin-bottom: 20px;
+            z-index: 1;
+        }
+        .official {
+            font-size: 1.2rem;
+            color: white;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            z-index: 1;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 400px;
+            width: 90%;
+            z-index: 1;
+        }
+        .btn {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        .btn:hover {
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%);
+            transform: scale(1.05);
+        }
+        .tip {
+            margin-top: 40px;
+            color: white;
+            font-size: 1rem;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">ACT导航页</h1>
+    <div class="official">官网: ACT.xyz</div>
+    <div class="button-group">
+        <a href="https://shop.682fk.com/shop/actnb8" class="btn">🛒点我稳定</a>
+        <a href="https://example.com/des" class="btn">🧹清理工具</a>
+        <a href="https://t.me/qiulinnb8" class="btn">🛩️官方频道</a>
+        <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=LAZrU9too8hlAUwFePVQmW1FH%2FCCIQ9KcpdEXnJO280djG%2Be90JmhUA2dVviHsfD&busi_data=eyJncm91cENvZGUiOiI3Mzg1NzEwMzciLCJ0b2tlbiI6IkdGWFBBelhvZUx2UlVpTE8yQXBWZk1NcDZkVlhGTlRuY0N1RnN5WUxOaW5HcTRwc0Jid3EyQmtEYUMreFRwWDgiLCJ1aW4iOiIyNTQ3NDg5OTc4In0%3D&data=4HU9TzATbsflI8cDP5-UOs2_1XGvQ1kAqkJRtpoN-E2J3UdM0pjafq3zwGekAMfi7uCdcHgShzu7A0gFKuEPsg&svctype=4&tempid=h5_group_info" class="btn">🐧QQ群</a>
+        <a href="https://t.me/actfy" class="btn">😎联系官方客服</a>
+    </div>
+    <div class="tip">购卡后请联系客服拿包</div>
+
+    <script>
+        // 雪花效果
+        function createSnow() {
+            const snow = document.createElement('div');
+            snow.className = 'snow';
+            snow.textContent = '❄';
+            snow.style.left = Math.random() * 100 + 'vw';
+            snow.style.fontSize = Math.random() * 10 + 10 + 'px';
+            snow.style.animationDuration = Math.random() * 5 + 5 + 's';
+            document.body.appendChild(snow);
+            setTimeout(() => {
+                snow.remove();
+            }, 10000);
+        }
+        setInterval(createSnow, 300);
+
+        // 音乐播放
+        const audio = new Audio('https://example.com/music.mp3');
+        document.body.addEventListener('click', () => {
+            audio.play().catch(err => console.log('播放失败:', err));
+        });
+    </script>
+</body>
+</html>
